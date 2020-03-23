@@ -1,0 +1,11 @@
+1. MEANING OF SIMPLE return;
+ANS. 
+
+You need to understand two things:
+
+    1.The return statement - this does two things a) it terminates the method's execution returning the point of execution to the statement just after where the method was called, b) it provides a way of returning a value (if the method does return a value)
+    1.A void method - the method does something but returns nothing
+
+So a void method does not return anything so you just write return; to terminate. If say the method returned an int you would do something like return 5; or return myInt;.
+
+2. strlen for character only and for string str.size()
