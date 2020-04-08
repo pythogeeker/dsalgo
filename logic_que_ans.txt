@@ -9,3 +9,42 @@ You need to understand two things:
 So a void method does not return anything so you just write return; to terminate. If say the method returned an int you would do something like return 5; or return myInt;.
 
 2. strlen for character only and for string str.size()
+
+3. How many distinct integers are factors of 90?
+
+ A) 6
+ B) 8 
+ C) 9
+ D) 10
+ E) 12
+
+ OA: E
+
+Solution:
+
+Approach 1: List down the factors. 1, 2, 3, 6, 5, 9, 10, 15, 30, 45, 90 = 12
+Approach 2: I just learnt about this method. So I thought I'd share it with you'll.
+
+Prime factorization of 90 = 2^1 * 3^2 * 5^1
+Now, we add 1 to each exponent and multiply them.
+(1+1) * (2+1) * (1+1) = 12
+
+It works with any number. I tried it. Let's take the example of 50. It's factors are 1, 2, 5, 10, 25, 50 = 6
+or 2^1 * 5^2 = (1+1) * (2+1) = 6
+
+4. What is 1LL or 2LL in c/c++?
+ ANS. 
+
+	The LL makes the integer literal of type long long.
+
+	So 2LL, is a 2 of type long long.
+
+	Without the LL, the literal would only be of type int.
+
+	This matters when you're doing stuff like this:
+
+	1   << 40
+	1LL << 40
+
+	With just the literal 1, (assuming int to be 32-bits, you shift beyond the size of the integer 	type -> undefined behavior). With 1LL, you set the type to long long before hand and now it will properly return 2^40.
+
