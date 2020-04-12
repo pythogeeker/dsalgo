@@ -48,3 +48,19 @@ or 2^1 * 5^2 = (1+1) * (2+1) = 6
 
 	With just the literal 1, (assuming int to be 32-bits, you shift beyond the size of the integer 	type -> undefined behavior). With 1LL, you set the type to long long before hand and now it will properly return 2^40.
 
+5. What is modulo 10^9+7
+ANS. "https://www.geeksforgeeks.org/modulo-1097-1000000007/"
+      
+ unsigned long long factorial(int n) 
+ { 
+    const unsigned int M = 1000000007; 
+  
+    unsigned long long f = 1; 
+    for (int i = 1; i <= n; i++) 
+        f = (f*i) % M;  // Now f never can 
+                        // exceed 10^9+7 
+    return f; 
+ } 
+
+
+
