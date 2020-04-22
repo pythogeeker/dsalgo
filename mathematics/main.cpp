@@ -6,8 +6,11 @@ int main()
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
 #endif
-	int x;
-	cin >> x;
-
-	cout << (x + 10) << endl;
+	int a = 10;
+	while (a > 5) {
+		a = 1;
+		cout << a << " ";
+		a--;
+	}
+	return 0;
 }
