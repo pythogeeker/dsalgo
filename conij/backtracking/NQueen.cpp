@@ -14,7 +14,7 @@ int main()
 	placeNQueen(4);
 	placeNQueen(5);
 	placeNQueen(6);
-	return 0;*/
+	*/
 	int T;
 	cin >> T;
 	while (T--)
