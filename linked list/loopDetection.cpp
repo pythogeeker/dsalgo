@@ -1,3 +1,4 @@
+//FLOYD CYCLE FINDING ALGORITHM
 #include<iostream>
 using namespace std;
 
@@ -5,21 +6,18 @@ struct node {
 	int data;
 	node *next;
 };
-int kthNode(struct node **head, int k) {
-	if (k < 0 || head == NULL)
-		return -1;
-	node *p, *q;
-	p = q = *head;
-	for (int count = 0; count < k; count++) {
-		if (q == NULL)
-			return -1;
-		q = q->next;
+int detectLoop(struct node *head) {
+
+	node * slowptr, *fastptr;
+	slowptr = fastptr = head;
+	for (; slowptr && fastptr && fastptr->next ;) {
+		slowptr = slowptr->next;
+		fastptr = fastptr->next->next;
+		if (slowptr == fastptr)
+			return 1;
 	}
-	while (q) {
-		q = q->next;
-		p = p->next;
-	}
-	return p ? p->data : -1;
+	return 0;
+
 }
 
 void insert(struct node **head, int data) {
@@ -54,6 +52,6 @@ int main() {
 	insert(&head, 9);
 	insert(&head, 10);
 	printList(&head);
-	cout << kthNode(&head, 4) << endl;
+	cout << detectLoop(head) << endl;
 	return 0;
 }
