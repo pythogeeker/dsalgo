@@ -1,3 +1,8 @@
+/*THREE APPROACHES
+	1. TRAVERSE LIST AND FIND SIZE OF IT AND THEN TAKE CEIL OF SIZE/2
+	2. WHILE TRAVERSING THE LIST STORE ALL THE ADDERESSES IN HASH TABLE
+	3. TWO POINTER APPROACH
+	*/
 #include<iostream>
 using namespace std;
 
@@ -6,21 +11,19 @@ struct node {
 	node *next;
 };
 
-int kthNode(struct node **head, int k) {
-	if (k < 0 || head == NULL)
-		return -1;
-	node *p, *q;
-	p = q = *head;
-	for (int count = 0; count < k; count++) {
-		if (q == NULL)
-			return -1;
-		q = q->next;
+void alternatingSplit(node *head, node **head1, node **head2) {
+
+	if (!head || !head->next)
+		return;
+	*head1 = head;
+	*head2 = head->next;
+	node *temp;
+	while (head) {
+		temp = head->next;
+		head->next = temp ? temp->next : temp;
+		head = temp;
 	}
-	while (q) {
-		q = q->next;
-		p = p->next;
-	}
-	return p ? p->data : -1;
+
 }
 
 void insert(struct node **head, int data) {
@@ -54,7 +57,12 @@ int main() {
 	insert(&head, 8);
 	insert(&head, 9);
 	insert(&head, 10);
+	node *head1 = NULL;
+	node *head2 = NULL;
 	printList(&head);
-	cout << kthNode(&head, 4) << endl;
+	alternatingSplit(head, &head1, &head2);
+	printList(&head1);
+	printList(&head2);
+
 	return 0;
 }

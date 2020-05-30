@@ -5,24 +5,22 @@ struct node {
 	int data;
 	node *next;
 };
-
-int kthNode(struct node **head, int k) {
-	if (k < 0 || head == NULL)
-		return -1;
-	node *p, *q;
-	p = q = *head;
-	for (int count = 0; count < k; count++) {
-		if (q == NULL)
-			return -1;
-		q = q->next;
+int detectLoop(struct node *head) {
+	bool flag = false;
+	node *slow = head, *fast = head;
+	for (; slow && fast && fast->next ; ) {
+		slow = slow->next;
+		fast = fast->next->next;
+		if (slow == fast) {
+			flag = true;
+			break;
+		}
 	}
-	while (q) {
-		q = q->next;
-		p = p->next;
-	}
-	return p ? p->data : -1;
+	if (flag)
+		for (slow = head; slow != fast ; slow = slow->next, fast = fast->next);
+	return slow->data;
+	return -1;
 }
-
 void insert(struct node **head, int data) {
 	struct node *newNode = new node();
 	newNode->data = data;
@@ -54,7 +52,10 @@ int main() {
 	insert(&head, 8);
 	insert(&head, 9);
 	insert(&head, 10);
-	printList(&head);
-	cout << kthNode(&head, 4) << endl;
+
+	//printList(&head);
+	cout << head->next->next->next->data << " " << head->next->data << " ";
+	head->next->next->next = head->next;
+	cout << detectLoop(head) << endl;
 	return 0;
 }
