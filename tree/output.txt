@@ -1,0 +1,8 @@
+1st print function
+1
+2
+3
+2nd print function
+1 : 2,3,
+2 : 
+3 : 
