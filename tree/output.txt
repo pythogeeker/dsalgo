@@ -1,8 +1,46 @@
+enter root data
+enter no of children of1
+enter 0th child of 1
+enter 1th child of 1
+enter 2th child of 1
+enter no of children of2
+enter 0th child of 2
+enter 1th child of 2
+enter no of children of3
+enter 0th child of 3
+enter no of children of4
+enter 0th child of 4
+enter no of children of5
+enter no of children of6
+enter no of children of7
+enter no of children of8
+Height of tree is
+3
+Number of nodes in tree
+8
+sum of nodes in tree
+36
+max of nodes in tree
+8
+No of leaf nodes
+4
+print At level K enter level
+5 6 7 8 
 1st print function
 1
 2
+5
+6
 3
+7
+4
+8
 2nd print function
-1 : 2,3,
-2 : 
-3 : 
+1 : 2,3,4,
+2 : 5,6,
+5 : 
+6 : 
+3 : 7,
+7 : 
+4 : 8,
+8 : 
