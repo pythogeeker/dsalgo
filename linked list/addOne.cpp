@@ -6,6 +6,7 @@ struct node {
 	node *next;
 
 };
+//
 node *addOneUtil(node *head);
 node * newNode(int data) {
 	node * temp = new node();
